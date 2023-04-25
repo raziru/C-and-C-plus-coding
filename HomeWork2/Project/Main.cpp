@@ -1,26 +1,66 @@
 #include<stdio.h>
 
-/*
-별(*)을 반복해서 찍기
-	
-삼각형, 사각형, 다이아몬드
-	*
-   *** 
-  *****
- *******
- 
-	****
-	****
-	**** 
-	**** 
-도형의 크기(size)를 입력(scanf)받아서 바뀌게
-가운데 정렬임을 숙지한다.
-입력 4면 높이가 4여야하며 되야한다.
-다이아몬드는 입력이 4면 4+3으로 한다.
-*/
-
 int main()
 {
-	
+	int n;
+	printf("도형의 크기를 정해주세요: ");
+	scanf_s("%d", &n);
+
+	printf("\n\n");
+
+	//삼각형
+
+	printf("삼각형\n\n");
+	for (int i = 0; i < n; i++)
+	{
+		for (int j = 0; j < n - i - 1; j++)
+			printf(" ");
+		for (int k = 0; k < 2 * i + 1; k++)
+			printf("*");
+		printf("\n");
+	}
+
+	printf("\n\n");
+
+	//사각형
+	printf("사각형\n\n");
+
+	for (int i = 0; i < n; i++)
+	{
+
+		for (int j = 0; j < n; j++)
+			printf("*");
+		printf("\n");
+	}
+
+	printf("\n\n");
+
+	//다이아몬드
+	printf("다이아몬드\n\n");
+
+	for (int i = 0; i < n; i++)
+	{
+
+		for (int j = 0; j < n - i - 1; j++)
+			printf(" ");
+
+		for (int k = 0; k < 2 * i + 1; k++)
+			printf("*");
+
+		printf("\n");
+	}
+
+	for (int i = n - 1; i > 0; i--)
+	{
+
+		for (int j = n - i; j > 0; j--)
+			printf(" ");
+
+		for (int k = 2 * i - 1; k > 0; k--)
+			printf("*");
+
+		printf("\n");
+	}
+
 	return 0;
 }
