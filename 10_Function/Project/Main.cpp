@@ -27,7 +27,7 @@
 
 */
 
-void Print()
+void Attack()
 {
 	printf("Attack!\n");
 }
@@ -50,19 +50,24 @@ void Print(float f)
 
 int Add(int a, int b)
 {
-	return a + b;
+	int result = a + b;
+
+	return result;
 }
 
 int Random(int start, int end)
 {
-	//start ~ end 사이의 랜덤 값이 나오는 함수 만들기
-	srand(time(NULL));
-	return	rand() % (end - start + 1) + start;
+
+	int random = rand() % (end - start + 1) + start;
+
+	return random;
 }
 
 int main()
 {
-	Print();
+	
+	Attack();
+
 
 	Print("HelloWorld!");//함수 호출, call
 
@@ -70,16 +75,23 @@ int main()
 
 	Print(1.5f);//float형을 받는 거면 float라 지정해주는게 안전하다.
 
-	int sum = Add(10,20);
-
-	Print(sum);
-
-	int result = Random(10, 20);
-
-	Print(result);
-
-	Print(Random(1002, 1500));
 	
+	int random = Add(10, 20);
+	
+	printf("Result = %d\n", random);
+		 
+	Random(50, 100);
+	for (int i = 0; i < 10; i++)
+	{
+		printf("Random = %d\n", Random(50, 100));
+	}
+
+	for (int i = 0; i < 12; i++)
+	{
+		printf("Random = %d\n", Random(50, 100));
+
+	}
+
 
 	return 0;
 }
