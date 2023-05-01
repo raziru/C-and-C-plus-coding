@@ -32,17 +32,22 @@ int main()
 
 	//arr = (int*)malloc(sizeof(int) * size);
 
-	/*printf("%d\n", arr[0]);
+	printf("%d\n", arr[0]);
 	printf("%d\n", arr[1]);
-	printf("%d\n", arr[2])*/;
+	printf("%d\n", arr[2]);
 	for (int i = 0; i < size; i++)
 	{
-		arr[i] = 5 * i;
+		arr[i] = 6 * i;
 
 		printf("           arr[%d] = %d\n", i, arr[i]);
 
 		printf("Address of arr[%d] = %p\n", i, &arr[i]);
 	}
+
+	/*for (int j = 0; j < 10; j++)
+	{
+		printf("hello world %d\n", 10);
+	}*/
 
 	printf("Size of arr = %lld\n", (sizeof(arr)));
 	//free(arr);
