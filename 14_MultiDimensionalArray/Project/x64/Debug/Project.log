@@ -1,0 +1,3 @@
+﻿  Main.cpp
+D:\2303_18to20\C and C plus coding\14_MultiDimensionalArray\Project\Main.cpp(89,6): warning C4101: 'answer2' :참조되지 않은 지역 변수입니다.
+  Project.vcxproj -> D:\2303_18to20\C and C plus coding\14_MultiDimensionalArray\x64\Debug\Project.exe

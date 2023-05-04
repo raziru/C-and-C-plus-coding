@@ -89,18 +89,20 @@ int main()
 	int answer2;
 	for (int i = 0; i < 4; i++)
 	{
-		answer2 = i*10;
+		//answer2 = i*10;
 		for (int j = 0; j < 4; j++)
 		{
-			arr5[i][j] = answer2++;
-			printf("arr5[%d][%d] = %d\t", i, j, arr5[i][j]);
-			//arr_2[i][j] = i * 10 + j;
+			arr5[i][j] = i * 10 + j;
+			//arr5[i][j] = answer2++;
+			printf("arr5[%d][%d] = %02d\t", i, j, arr5[i][j]);
 
 		}
 		printf("\n");
 
 	}
 	printf("\n\n");
+
+	printf("%.2f\n", 1.5f);
 
 
 
