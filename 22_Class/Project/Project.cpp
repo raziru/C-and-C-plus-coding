@@ -124,7 +124,7 @@ int main()
 
     player.ShowInfo();
 
-    Character enemy;//앞에서부터 채워넣어야한다.
+    Character enemy("Park", 5);//앞에서부터 채워넣어야한다.
 
     enemy.SetInfo("Park", 5, 10.0f, true);
 
