@@ -1,5 +1,6 @@
 ﻿#include <iostream>
 #include <string>
+#include <conio.h>
 
 using namespace std;
 
@@ -17,10 +18,11 @@ using namespace std;
 
 enum Menu
 {
-	PLAY = 1,
+	PLAY = 49,
 	FEED,
 	SLEEP,
 	CLEAN,
+	FIGHT,
 	END,
 	ERROR
 };
@@ -69,6 +71,8 @@ public:
 		SetStat(hunger, +40);
 		SetStat(dirty , +20);
 		SetStat(hp    , -20);
+
+		SetExp(+100);
 	}
 	void Feed()
 	{
@@ -76,6 +80,9 @@ public:
 		SetStat(hunger, -50);
 		SetStat(dirty , +20);
 		SetStat(hp    , +10);
+		
+		SetExp(+50);
+
 	}
 	void Sleep()
 	{
@@ -90,7 +97,37 @@ public:
 		SetStat(hunger, +20);
 		SetStat(dirty , -50);
 		SetStat(hp    , +20);
+		
+		SetExp(+30);
+
 	}
+	void SetExp(int value)
+	{
+		
+		exp += value;
+
+		if (exp>=level*MAX_STAT)
+		{
+			exp -= level * MAX_STAT;
+			level++;
+
+			cout << name << "이 레벨업 했습니다!" << endl;
+		}
+	}
+
+	bool Battle(Character* enemy)
+	{
+		if (this->level >= enemy->level)//객체가 달라도 클래스 이름이 같으면 private에 접근할 수 있다.
+		{
+			return true;
+		}
+		else
+		{
+			return false;
+		}
+	}
+	int GetLevel() { return level; }
+
 private:
 	string name = "";
 	int level   = 1;
@@ -101,6 +138,18 @@ private:
 
 };
 
+bool Battle(Character* player1, Character* player2)
+{
+	if (player1->GetLevel() >= player2->GetLevel())
+	{
+		return true;
+	}
+	else
+	{
+		return false;
+	}
+}
+
 
 int main()
 {
@@ -109,19 +158,38 @@ int main()
 	cin >> name;
 
 	Character* player = nullptr;
+	Character* enemy = nullptr;
+
 	player = new Character(name);
+	enemy = new Character("적");
+
 
 	while (true)
 	{
 		Menu menu;
-		cout << "메뉴를 선택하세요! 1. PLAY, 2. FEED, 3. SLEEP, 4. CLEAN, 5. END_GAME" << endl;
+
+		cout << "메뉴를 선택하세요! 1. PLAY, 2. FEED, 3. SLEEP, 4. CLEAN, 5. FIGHT 6.END_GAME" << endl;
 		/*int input;
 		cin >> input;
 		menu = (Menu)input;*/
 
+		/*getchar();
+		scanf_s(" %d", &menu);*/
 
-		getchar();
-		scanf_s(" %d", &menu);
+		char input;
+		while (true)
+		{
+			if (_kbhit())
+			{
+				input = _getch();
+				break;
+			}
+		}
+
+		menu = (Menu)input;
+		system("cls");
+
+		
 
 		switch (menu)
 		{
@@ -140,12 +208,22 @@ int main()
 			case END:
 				cout << "게임을 종료했습니다!" << endl;
 				delete(player);
+				delete(enemy);
 				return 0;
+				break;
+			case FIGHT:
+				
+				if (player->Battle(enemy))
+					cout << "Player 승리!" << endl;
+				else
+					cout << "Enemy 승리!" << endl;
+				
 				break;
 			default:
 				menu = ERROR;
 				break;
 		}
+
 		player->ShowInfo();
 	}
 
