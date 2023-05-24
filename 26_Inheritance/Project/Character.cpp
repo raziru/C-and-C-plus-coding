@@ -3,12 +3,12 @@
 
 Character::Character()
 {
-	cout << "Character »ý¼ºÀÚ È£Ãâ!" << endl;
+	cout << "Character ìƒì„±ìž í˜¸ì¶œ!" << endl;
 }
 
 Character::~Character()
 {
-	cout << "Character ¼Ò¸êÀÚ È£Ãâ!" << endl;
+	cout << "Character ì†Œë©¸ìž í˜¸ì¶œ!" << endl;
 
 }
 
@@ -26,7 +26,7 @@ void Character::ShowInfo()
 
 void Character::Attack(Character* other)
 {
-	cout << this->name << "ÀÌ(°¡) " << name << "À»(¸¦) °ø°Ý!" << endl;
+	cout << this->name << "ì´(ê°€) " << other->name << "ì„(ë¥¼) ê³µê²©!" << endl;
 }
 
 
