@@ -9,3 +9,6 @@ using namespace std;
 #include "Character.h"
 #include "PIkachu.h"
 #include "Mew.h"
+#include "UI.h"
+#include "Mage.h"
+#include "MageScreen.h"

@@ -12,6 +12,8 @@ public:
 
 	void ShowInfo();
 	//void Attack(Mew* other);
+
+	void Test() {};
 private:
 	int energy = 0;
 };

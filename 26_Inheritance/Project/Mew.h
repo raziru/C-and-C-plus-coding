@@ -6,6 +6,7 @@ public:
 	Mew();
 	~Mew();
 	void ShowInfo();
+	void Test() {};
 private:
 	float mp = 0.0f;
 };

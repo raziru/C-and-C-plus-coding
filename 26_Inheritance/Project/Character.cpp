@@ -3,12 +3,12 @@
 
 Character::Character()
 {
-	cout << "Character ìƒì„±ìž í˜¸ì¶œ!" << endl;
+	cout << "Character »ý¼ºÀÚ È£Ãâ!" << endl;
 }
 
 Character::~Character()
 {
-	cout << "Character ì†Œë©¸ìž í˜¸ì¶œ!" << endl;
+	cout << "Character ¼Ò¸êÀÚ È£Ãâ!" << endl;
 
 }
 
@@ -17,17 +17,20 @@ void Character::ShowInfo()
 	cout << "-----Character Info-----" << endl;
 
 
-	cout << "Name  : " << name  << endl;
+	cout << "Name  : " << name << endl;
 	cout << "Level : " << level << endl;
-	cout << "HP    : " << hp    << endl;
+	cout << "HP    : " << hp << endl;
 	cout << "Damage: " << damage << endl;
 
 }
 
 void Character::Attack(Character* other)
 {
-	cout << this->name << "ì´(ê°€) " << other->name << "ì„(ë¥¼) ê³µê²©!" << endl;
+	cout << this->name << "ÀÌ(°¡) " << other->name << "À»(¸¦) °ø°Ý!" << endl;
 }
 
+void Character::SetCombat()
+{
+}
 
 
