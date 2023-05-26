@@ -1,10 +1,6 @@
 ﻿#include "Framework.h"
 
 /*
-
-
-
-
 상속(Inheritance):
 
 코드를 재사용하는 방법 중 하나 / 클래스끼리 부모자식관계를 설정

@@ -1,5 +1,5 @@
 #pragma once
-
+class Mage;
 class Mew : public Character
 {
 public:

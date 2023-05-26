@@ -3,6 +3,7 @@
 
 Mage::Mage()
 {
+	this->name = "마법사";
 	cout << "메이지 생성!" << endl;
 }
 

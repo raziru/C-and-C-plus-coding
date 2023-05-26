@@ -6,6 +6,13 @@ Character::Character()
 	cout << "Character 생성자 호출!" << endl;
 }
 
+Character::Character(string name)
+	:name(name)
+{
+	cout << "Character 생성자 호출!" << endl;
+
+}
+
 Character::~Character()
 {
 	cout << "Character 소멸자 호출!" << endl;
@@ -29,8 +36,6 @@ void Character::Attack(Character* other)
 	cout << this->name << "이(가) " << other->name << "을(를) 공격!" << endl;
 }
 
-void Character::SetCombat()
-{
-}
+void Character::SetCombat() {}
 
 
