@@ -28,17 +28,16 @@ public:
 
 	virtual void ShowTrait() override; // 캐릭터 설명 출력
 
-
 private:
 
 	int mp = 100;
 	bool powerup = false;
 	
+	virtual void Reset() override;
 	
 
 
-	// Character을(를) 통해 상속됨
-	virtual void Reset() override;
+	
 
 };
 

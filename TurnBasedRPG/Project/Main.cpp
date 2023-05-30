@@ -80,7 +80,6 @@ void Battle(Character*player)
     Button button;
     bool playerTurn = true;
     player->Reset();
-
     int random = rand() % 2;
     if (random == 0)
     {

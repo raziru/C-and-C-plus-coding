@@ -29,16 +29,17 @@ public:
 
 	virtual void ShowTrait() override; // 캐릭터 설명 출력
 
+
 private:
 
 	int shield = 0; //방어도
 
+	virtual void Reset() override;
 
 	
 
 
-	// Character을(를) 통해 상속됨
-	virtual void Reset() override;
+	
 
 };
 
