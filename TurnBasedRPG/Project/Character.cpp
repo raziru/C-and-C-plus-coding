@@ -4,12 +4,11 @@
 Character::Character()
 {
 	cout << this->name << "Ä³¸¯ÅÍ »ý¼º!" << endl;
+	this->win = 0;
+	this->lose = 0;
 }
 
-void Character::SetName(string name)
-{
-	this->name = name;
-}
+
 
 void Character::ShowInfo()
 {
@@ -19,9 +18,26 @@ void Character::ShowInfo()
 	cout << "°ø°Ý·Â: " << this->attack  << endl;
 	cout << "¹æ¾î·Â: " << this->defense << endl;
 
-	cout << "½Â¸®¼ö: " << this->win     << endl;
-	cout << "ÆÐ¹è¼ö: " << this->lose    << endl;
+	
 
+}
+
+void Character::ShowRecord()
+{
+	cout << "----------- ÀüÀû ---------" << endl;
+
+	cout << "½Â¸®¼ö: " << this->win << endl;
+	cout << "ÆÐ¹è¼ö: " << this->lose << endl;
+	if (this->lose+this->win == 0)
+	{
+		cout << "½Â·ü  : -" << endl;
+
+	}
+	else
+	{
+		cout << "½Â·ü  : " << this->win / (float)(this->lose + this->win) * 100.0f << "%" << endl;
+
+	}
 }
 
 
@@ -31,9 +47,9 @@ int Character::GetWin()
 	return this->win;
 }
 
-void Character::SetWin(int temp)
+void Character::SetWin()
 {
-	this->win = temp + this->win;
+	this->win ++;
 }
 
 int Character::GetLose()
@@ -41,9 +57,9 @@ int Character::GetLose()
 	return this->lose;
 }
 
-void Character::SetLose(int temp)
+void Character::SetLose()
 {
-	this->lose = temp + this->lose;
+	this->lose++;
 }
 
 int Character::GetHP()

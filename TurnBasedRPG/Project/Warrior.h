@@ -1,10 +1,14 @@
 #pragma once
 
 class Mage;
+class Fighter;
+class Vampire;
+
 class Warrior:public Character
 {
 public:
 	Warrior();
+	Warrior(string name);
 	~Warrior();
 	// Character을(를) 통해 상속됨
 
@@ -22,12 +26,19 @@ public:
 	virtual void Passive() override;
 
 	virtual void GetDamged(int damage) override;
+
+	virtual void ShowTrait() override; // 캐릭터 설명 출력
+
 private:
 
 	int shield = 0; //방어도
 
 
 	
+
+
+	// Character을(를) 통해 상속됨
+	virtual void Reset() override;
 
 };
 
