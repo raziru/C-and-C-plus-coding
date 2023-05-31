@@ -1,5 +1,8 @@
 ﻿  Framework.cpp
   Character.cpp
+  Garen.cpp
   Main.cpp
+  Teemo.cpp
+D:\2303to\C-and-C-plus-coding\27_TurnBasedRPG\Project\Teemo.cpp(61,27): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
   코드를 생성하고 있습니다...
   Project.vcxproj -> D:\2303to\C-and-C-plus-coding\27_TurnBasedRPG\x64\Debug\Project.exe
