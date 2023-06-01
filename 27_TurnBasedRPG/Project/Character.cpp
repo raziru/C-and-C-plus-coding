@@ -11,13 +11,15 @@ Character::~Character()
 
 void Character::ShowInfo()
 {
-	cout << "-----" << name << "Info-----" << endl;
+	cout << "-----" << name << " Info-----" << endl;
 	cout << "CurHP :" << curHP        << endl;
 	cout << "MaxHP :" << maxHP        << endl;
 	cout << "AD    :" << attackDamage << endl;
 
 
 }
+
+
 
 void Character::Initialize()
 {
@@ -30,6 +32,14 @@ void Character::BaseAttack(Character* other)
 
 
 	other->ApplyDamage(this->attackDamage);
+}
+
+void Character::AutoBattle(Character* other)
+{
+	if (rand() % 2)
+		BaseAttack(other);
+	else
+		Skill(other);
 }
 
 void Character::ApplyDamage(int damage)

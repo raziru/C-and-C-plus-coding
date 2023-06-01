@@ -1,4 +1,6 @@
 #pragma once
+
+class Neeko;
 class Garen:public Character
 {
 public:
@@ -7,11 +9,9 @@ public:
 
 	virtual void ShowInfo() override;
 
-	virtual void Initialize() override;
-
-	virtual void BaseAttack(Character* other) override;
-
 	virtual void Skill(Character* other) override;
+	
+	virtual void AutoBattle(Character* other) override;
 private:
 
 	int regen;

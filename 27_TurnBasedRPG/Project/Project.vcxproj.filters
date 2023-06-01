@@ -30,6 +30,12 @@
     <ClCompile Include="Garen.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
+    <ClCompile Include="Neeko.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="GameScene.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Framework.h">
@@ -42,6 +48,12 @@
       <Filter>헤더 파일</Filter>
     </ClInclude>
     <ClInclude Include="Garen.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="Neeko.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="GameScene.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
   </ItemGroup>

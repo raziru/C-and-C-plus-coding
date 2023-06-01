@@ -1,32 +1,49 @@
 ﻿#include "Framework.h"
 
+
+
 int main()
 {
-	Character* player = new Teemo();
-	Character* enemy = new Teemo();
-	player->Initialize();
-	 enemy->Initialize();
+	srand(time(NULL));
+	
+	GameScene* scene = new GameScene;
 
-	player->ShowInfo();
-	 enemy->ShowInfo();
+	scene->ChooseCharacter();
 
-	player->BaseAttack(enemy);
-	enemy->Skill(player);
-	enemy->Skill(player);
-
-	enemy->Skill(player);
-
-	enemy->Skill(player);
+	
 
 
+	while (true)
+	{
+		cout << "메뉴를 입력하세요" << endl;
 
-	player->ShowInfo();
-	 enemy->ShowInfo();
+		int input;
+
+		cin >> input;
+		switch (input)
+		{
+			case 1:
+				scene->StartBattle();
+				break;
+			case 2:
+				cout << "게임을 종료합니다!" << endl;
+				delete scene;
+				return 0;
+			default:
+				break;
+		}
+	}
+	
+	
+
+	
+	
 
 
 	
-	delete player;
-	delete enemy;
+	
+	
+	
 	return 0;
 }
 

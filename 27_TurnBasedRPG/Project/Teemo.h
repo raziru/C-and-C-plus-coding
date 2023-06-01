@@ -1,5 +1,6 @@
 #pragma once
 
+class Neeko;
 class Garen;
 
 class Teemo:public Character
@@ -17,10 +18,13 @@ public:
 
 	virtual void Skill(Character* other) override;
 
-	
+	virtual void AutoBattle(Character* other) override;
+
 private:
 
 	int curMP = 0;
 	int maxMP = 0;
 
+
+	int count = 0;
 };

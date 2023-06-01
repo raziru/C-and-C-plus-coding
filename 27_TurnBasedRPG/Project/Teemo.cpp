@@ -34,6 +34,8 @@ void Teemo::Initialize()
 void Teemo::BaseAttack(Character* other)
 {
 	Character::BaseAttack(other);
+
+	count = 3;
 }
 
 void Teemo::Skill(Character* other)
@@ -60,5 +62,19 @@ void Teemo::Skill(Character* other)
 
 		other->ApplyDamage(rate * attackDamage);
 	}
+}
+
+void Teemo::AutoBattle(Character* other)
+{
+	if (count>0)
+	{
+		int damage = 5;
+
+		other->ApplyDamage(damage);
+
+		count--;
+	}
+
+	Character::AutoBattle(other);
 }
 

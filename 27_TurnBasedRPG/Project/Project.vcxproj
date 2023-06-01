@@ -136,14 +136,18 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
     </ClCompile>
+    <ClCompile Include="GameScene.cpp" />
     <ClCompile Include="Garen.cpp" />
     <ClCompile Include="Main.cpp" />
+    <ClCompile Include="Neeko.cpp" />
     <ClCompile Include="Teemo.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Character.h" />
     <ClInclude Include="Framework.h" />
+    <ClInclude Include="GameScene.h" />
     <ClInclude Include="Garen.h" />
+    <ClInclude Include="Neeko.h" />
     <ClInclude Include="Teemo.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

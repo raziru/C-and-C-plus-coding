@@ -13,8 +13,14 @@ public:
 	virtual void BaseAttack(Character* other);
 
 	virtual void Skill(Character* other) = 0;
+	
+	virtual void AutoBattle(Character* other);
 
 	void ApplyDamage(int damage);
+
+	int GetHP() { return curHP; }; //Inline 함수 : 매크로처럼 작동(메모리 할당X 문장을 바꿔치는 느낌
+
+	string GetName() { return name; }; //Inline 함수 : 매크로처럼 작동(메모리 할당X 문장을 바꿔치는 느낌
 
 
 protected:
@@ -27,5 +33,4 @@ protected:
 
 
 };
-
 
