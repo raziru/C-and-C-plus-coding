@@ -1,7 +1,7 @@
 #pragma once
 
-class Neeko;
-class Garen;
+//class Neeko;
+//class Garen;
 
 class Teemo:public Character
 {
