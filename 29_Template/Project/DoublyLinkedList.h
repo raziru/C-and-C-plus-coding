@@ -72,7 +72,7 @@ inline Node<T>* DoublyLinkedList<T>::Find(UINT index)
 	else
 	{
 		node = tail;
-		for (int i = listSize - 1; i >= index; i--)
+		for (int i = listSize - 1; i > index; i--)
 		{
 			node = node->prev;
 		}
@@ -141,29 +141,61 @@ inline void DoublyLinkedList<T>::Insert(Node<T>* newNode, UINT index)
 		return;
 	}
 
-	if (index=listSize)
+	if (index==listSize)
 	{
 		PushBack(newNode);
+		return;
+	}
+	if (index == 0)
+	{
+		newNode->next = head;
+		head->prev = newNode;
+		head = newNode;
+		listSize++;
+
+		return;
 	}
 
+	/*Node<T>* node = Find(index);
+	newNode->next = node;
+	newNode->prev = node->prev;
 
+	node->prev->next = newNode;
+	node->prev = newNode;*/
 
-	Node<T>* node = Find(index-1);
-	node->next->prev = newNode;
+	Node<T>* node = Find(index - 1);
+	newNode->next = node->next;
+	newNode->prev = newNode;
+
 	node->next = newNode;
-
+	newNode->next->prev = newNode;
+	
 	listSize++;
 }
 
 template<typename T>
 inline void DoublyLinkedList<T>::Remove(UINT index)
 {
-	if (index<0 || index>listSize)
+	if (index<0 || index>=listSize)
 	{
 		cout << "인덱스가 범위를 벗어납니다!" << endl;
 		return;
 	}
+	if (index == listSize-1)
+	{
+		PopBack();
+		return;
+	}
+	if (index == 0)
+	{
+		Node<T>* node = head->next;
+		delete head;
+		head = node;
+		head->prev = nullptr;
+		listSize--;
 
+		return;
+	}
 
 	Node<T>* node = Find(index);
 	node->next->prev = node->prev;
@@ -177,11 +209,26 @@ inline void DoublyLinkedList<T>::Remove(UINT index)
 template<typename T>
 inline void DoublyLinkedList<T>::Print()
 {
+	cout << "----------------------------" << endl;
+
+	if (listSize==0)
+	{
+		cout << "리스트가 비어있습니다!" << endl;
+		return;
+	}
+	for (UINT i = 0; i < listSize; i++)
+	{
+		cout << i<<"번째 노드: "<<AT(i) << endl;
+	}
 }
 
 template<typename T>
 inline void DoublyLinkedList<T>::Clear()
 {
+	while (listSize!=0)
+	{
+		PopBack();
+	}
 }
 
 

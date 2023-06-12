@@ -1,6 +1,16 @@
-﻿  Framework.cpp
-  AddClass.cpp
-  DoublyLinkedList.cpp
-  Main.cpp
-  코드를 생성하고 있습니다...
+﻿  Main.cpp
+D:\2303to\C-and-C-plus-coding\29_Template\Project\DoublyLinkedList.h(75,32): warning C4018: '>': signed 또는 unsigned가 일치하지 않습니다.
+D:\2303to\C-and-C-plus-coding\29_Template\Project\DoublyLinkedList.h(60,1): message : 클래스 템플릿 멤버 함수 'Node<T> *DoublyLinkedList<T>::Find(UINT)'을(를) 컴파일하는 중입니다.
+          with
+          [
+              T=int
+          ]
+D:\2303to\C-and-C-plus-coding\29_Template\Project\DoublyLinkedList.h(166,16): message : 컴파일되는 함수 템플릿 인스턴스화 'Node<T> *DoublyLinkedList<T>::Find(UINT)'에 대한 참조를 확인하세요.
+          with
+          [
+              T=int
+          ]
+D:\2303to\C-and-C-plus-coding\29_Template\Project\DoublyLinkedList.h(50,1): message : 클래스 템플릿 멤버 함수 'DoublyLinkedList<int>::DoublyLinkedList(void)'을(를) 컴파일하는 중입니다.
+D:\2303to\C-and-C-plus-coding\29_Template\Project\Main.cpp(14,7): message : 컴파일되는 함수 템플릿 인스턴스화 'DoublyLinkedList<int>::DoublyLinkedList(void)'에 대한 참조를 확인하세요.
+D:\2303to\C-and-C-plus-coding\29_Template\Project\Main.cpp(14,34): message : 컴파일되는 클래스 템플릿 인스턴스화 'DoublyLinkedList<int>'에 대한 참조를 확인하세요.
   Project.vcxproj -> D:\2303to\C-and-C-plus-coding\29_Template\x64\Debug\Project.exe
