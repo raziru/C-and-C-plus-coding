@@ -1,0 +1,13 @@
+﻿  Framework.cpp
+  Player.cpp
+D:\2303_18to20\C and C plus coding\Equip&Sell\Project\Player.cpp(55,30): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+D:\2303_18to20\C and C plus coding\Equip&Sell\Project\Player.cpp(57,33): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  Main.cpp
+D:\2303_18to20\C and C plus coding\Equip&Sell\Project\Main.cpp(160,7): warning C4101: 'input' :참조되지 않은 지역 변수입니다.
+D:\2303_18to20\C and C plus coding\Equip&Sell\Project\Main.cpp(328,12): warning C4244: '인수': 'time_t'에서 'unsigned int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  Shop.cpp
+D:\2303_18to20\C and C plus coding\Equip&Sell\Project\Shop.cpp(50,29): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+D:\2303_18to20\C and C plus coding\Equip&Sell\Project\Shop.cpp(52,33): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+D:\2303_18to20\C and C plus coding\Equip&Sell\Project\Shop.cpp(190,17): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+  코드를 생성하고 있습니다...
+  Project.vcxproj -> D:\2303_18to20\C and C plus coding\Equip&Sell\x64\Debug\Project.exe
