@@ -55,6 +55,8 @@ struct Item
 	ItemType type  = NONE;
 };
 
+class Store;
+
 class Player
 {
 public:
@@ -68,9 +70,11 @@ public:
 	void ShowInventory();
 	void ShowEquipList();
 
-	void EquipItem(string name);
+	void   EquipItem(string name);
 	void UnEquipItem(ItemType type);
 
+	void  BuyItem(Store* store, string name);	
+	void SellItem(Store* store, string name);
 
 
 private:

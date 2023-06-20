@@ -156,19 +156,12 @@ inline void DoublyLinkedList<T>::Insert(Node<T>* newNode, UINT index)
 		return;
 	}
 
-	/*Node<T>* node = Find(index);
+	Node<T>* node = Find(index);
 	newNode->next = node;
 	newNode->prev = node->prev;
 
 	node->prev->next = newNode;
-	node->prev = newNode;*/
-
-	Node<T>* node = Find(index - 1);
-	newNode->next = node->next;
-	newNode->prev = newNode;
-
-	node->next = newNode;
-	newNode->next->prev = newNode;
+	node->prev = newNode;
 	
 	listSize++;
 }
@@ -209,13 +202,6 @@ inline void DoublyLinkedList<T>::Remove(UINT index)
 template<typename T>
 inline void DoublyLinkedList<T>::Print()
 {
-	cout << "----------------------------" << endl;
-
-	if (listSize==0)
-	{
-		cout << "리스트가 비어있습니다!" << endl;
-		return;
-	}
 	for (UINT i = 0; i < listSize; i++)
 	{
 		cout << i<<"번째 노드: "<<AT(i) << endl;

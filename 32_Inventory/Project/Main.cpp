@@ -4,13 +4,16 @@ int main()
 {
 	Player* player = new Player;
 
-	player->AddItem("천갑옷", 300, ARMOR);
-	player->AddItem("롱소드", 350, WEAPON);
-	player->AddItem("라바돈", 360, HELMET);
+	Store* store = new Store;
+
+	
 
 
+	store->ShowItems();
 
+	player->BuyItem(store,"천갑옷");
 	player->ShowInventory();
+	store->ShowItems();
 
 	cout << "장착할 아이템의 이름을 입력하세요!" << endl;
 
@@ -27,6 +30,7 @@ int main()
 	int type;
 
 	cin >> type;
+
 	player->UnEquipItem(ItemType(type-1));
 
 	player->ShowEquipList();
@@ -34,6 +38,9 @@ int main()
 	player->ShowInventory();
 
 	delete player;
+
+	delete store;
+
 
 	//rfor로 intellisense 호출
 	/*auto a = 0;

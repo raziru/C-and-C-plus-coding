@@ -18,6 +18,8 @@ void Player::AddItem(string name, UINT price, ItemType type)
 
 void Player::ShowInventory()
 {
+	cout << "-------- Inventory -------" << endl;
+
 	for (Item item : inventory)
 		item.ShowInfo();
 }
@@ -59,4 +61,20 @@ void Player::UnEquipItem(ItemType type)
 	inventory.push_back(unequipItem);
 	equipList.erase(type);
 
+}
+
+void Player::BuyItem(Store* store, string name)
+{
+	map<string, Item> items = store->GetItems();
+
+	Item item = items[name];
+
+	inventory.push_back(item);
+
+	store->GetItems().erase(name);
+	//store->RemoveItem(name);
+}
+
+void Player::SellItem(Store* store, string name)
+{
 }

@@ -1,50 +1,82 @@
 ﻿#include "Framework.h"
 
 /*
-STL (Standard Template Library) : 자료구조, 알고리즘을 템플릿으로 정리한 라이브러리
+STL (Standard Template Library)
 
-1. Container(자료구조):
+Container(자료구조):
 vector, list, stack, heap, map .. 등등
 
-1-1) Sequence Container(순차 컨테이너) : 선형자료구조 - vector, deque, list(doublelinkedlist), forward_list
+1. 순차 컨테이너 (Sequence): 선형자료구조 - vector, deque, list, forward_list
 
 'vector' : 동적인 배열
 
-1-2) Associative Container(연관 컨테이너) : pair('key' , 'value') : ('키' , '값') 쌍
+2. 연관 컨테이너 (Associative) : 'key' , 'value' - pair / 키 값 쌍
 
 키와 값이 쌍으로 이루어져 있는 구조
 
-key : ID (identifier)
-
-set, map
-
-map : key와 value의 쌍
-map, multi_map, unordered_map, set, multi_set, unordered_set // map은 입력이 들어오면 항상 정렬해준다. unordered_map은 입력된 순서를 보존해준다.
+map, multi_map, unordered_map, set, multi_set, unordered_set
 multi_map은 key중복을 허가한 맵
+map : key와 value의 쌍
 
-'map'
+key : ID 
 
-
-stl은 map과 vector를 가장 많이 쓴다.
-
-1-3) Container Adapter (컨테이너 어댑터): 컨테이너를 변형한 자료구조
-- stack, queue, priority queue
+3. 컨테이너 어댑터 (Container Adapter)
 
 
-2. Iterator(반복자): 컨테이너로 부터 값을 읽는데 사용하는 '포인터 변수' // find함수에 선언되는 포인터 변수처럼 컨테이너를 순회할때 사용되는 포인터 변수들
+Iterator(반복자): 컨테이너로 부터 값을 읽는데 사용하는 포인터 변수
 
 
-3. Algorithm(알고리즘): 문제 해결을 위한 논리의 흐름을 정리해둔 것
-
-- Swap, Find, Sort //자료구조 알고리즘 공부는 암기이며 함수로 떼우는 게 맞지 개념에 직찹하지말자.
+Algorithm(알고리즘):
 
 */
+
+/*
+class inventory 만들기
+
+소지품(아이템) 보관하는 인벤토리
+
+struct item
+{
+}
+아이템을 저장하는 vectro를 만들기
+
+아이템 추가 삭제 조회등등 기능만들기
+
+struct안에 아이템의 기능을 넣는다.
+
+*/
+enum State
+{
+	IDLE,
+	WALK,
+	JUMP
+};
+
 enum Type
 {
 	WEAPON,
 	ARMOR,
 	HELMET
 };
+
+class Animation
+{
+public:
+	
+	Animation();
+	~Animation();//맴버 함수: 메소드
+	int ID;//맴버 변수
+private:
+	
+};
+
+Animation::Animation()
+{
+}
+
+Animation::~Animation()
+{
+}
 
 struct Item
 {
@@ -58,16 +90,19 @@ struct Item
 	UINT   price;
 	float  damage;
 };
-
+//vector-- 성능좋은 배열이 필요할 때 map-- 중복을 거부할 필요가 있을때 사용
 int main()
 {
-	//<key, value>  key는 중복 불가 value는 중복 가능
-	map<string, int> intMap;
+	//<key, value>  key는 중복 불가 value는 중복 가능//키 값 쌍
+	map<string, int> intMap;//보통 키는 스트링을 할당한다.
 
-	intMap.insert(pair<string, int>("Armor", 1));
+
+	intMap.insert(pair<string, int>("Armor", 1));//pushback이 없다.
 	intMap.insert({ "Helmet", 1 });
 
 	intMap.emplace( "Weapon", 1 ); //가장 빠르고 안정적인 삽입 방법이다.
+	intMap.emplace("Weapon", 123); //key 중복은 거부한다.
+
 
 	for (pair<string,int> pair : intMap)
 	{
@@ -77,7 +112,7 @@ int main()
 	}
 	cout << intMap["Weapon"] << endl;
 
-	if (intMap.count("Weapon") > 0)
+	if (intMap.count("Weapon") > 0)//multi_map은 실제 개수, 나머지는 0개 or 1개만 출력된다. 중복이 없기때문
 	{
 		cout << "Weapon이 존재합니다." << endl;
 	}
@@ -85,6 +120,20 @@ int main()
 	{
 		cout << "Weapon이 존재하지 않습니다." << endl;
 	}
+
+	map<State, Animation*> animMap;
+
+		State state;
+
+	animMap.emplace(IDLE, new Animation());
+	animMap.emplace(WALK, new Animation());
+	animMap.emplace(JUMP, new Animation());
+
+	animMap[IDLE]->ID= 10;
+	animMap[WALK]->ID = 20;
+	animMap[JUMP]->ID = 30;
+
+
 
 	map<Type, Item> inventory;
 
@@ -129,52 +178,63 @@ int main()
 }
 int main1()
 {
-    vector<int> intVector;
+    vector<int> intVector;//size를 지정할 필요가 없다. -- 여유있게 메모리를 할당해두고 만약 다음에 들어갈 공간에 다른 개체가있으면 아예 벡터의 모든 것을 다른 위치로 이동시킨다. 
 
+	
 	for (UINT i = 0; i < 10; i++)
 	{
 		intVector.push_back(i + 1);
 	}
-	vector<int>::iterator iter;
+	vector<int>::iterator iter;//class에 들어있는 변수형
 
 	iter = intVector.begin();//head를 반환하는 함수
-	while (true)
+
+	/*cout << *iter << endl;
+
+	iter++;
+
+	cout << *iter << endl;*/
+
+	/*for (vector<int>::iterator iter = intVector.begin(); iter !=intVector.end(); iter++)
 	{
-		cout << *iter++ << endl;//++로 이동한다. Array와 기능을 유사하게 만들어줌
+		cout << *iter << endl;
+	}*/
 
-		if (iter == intVector.end())
+	/*while (true)
+	{
+		cout << *iter << endl;
+		iter++;
+		if (iter==intVector.end())
+		{
 			break;
-		
-	}
+		}
+	}*/
 
-	int index = 3;
+	for (UINT i = 0; i < intVector.size(); i++)//일부만 사용할때
+	{
+		cout << &intVector[i] << endl;
+	}
+	int index = 5;
+
+	intVector.erase(intVector.begin() + index);//iterator를 요구한다. 하지만 선언할필요가 없다.
+
+	cout << "---------------------" << endl;
+
+	intVector.insert(intVector.begin() + index, 100);
 
 	intVector.emplace_back();
 
-
-	intVector.erase(intVector.begin() + index);
-
-
-	//iter = intVector.begin();//head를 반환하는 함수
-	//while (true)
-	//{
-	//	cout << *iter++ << endl;//++로 이동한다. Array와 기능을 유사하게 만들어줌
-
-	//	if (iter == intVector.end())
-	//		break;
-
-	//}
-
-	for (int i : intVector)//범위 기반 for문
+	for (int i : intVector)//범위 기반 for문 -- 자료구조를 위한 기술이기때문에 많이쓰인다. 전체를 건들때
 	{
-		cout << i<< endl;//++로 이동한다. Array와 기능을 유사하게 만들어줌
+		cout << i << endl;//++로 이동한다. Array와 기능을 유사하게 만들어줌
 
 	}
 
-	for (UINT i = 0; i < intVector.size(); i++)
-	{
-		cout << intVector[i] << endl;
-	}
+
+
+
+	
+
 
     return 0;
 }
