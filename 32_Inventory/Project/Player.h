@@ -2,7 +2,7 @@
 
 enum ItemType
 {
-	WEAPON,
+	WEAPON = 1,
 	ARMOR,
 	HELMET,
 	NONE

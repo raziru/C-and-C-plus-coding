@@ -2,47 +2,37 @@
 
 int main()
 {
-	Player* player = new Player;
+	GameManager gm;
 
-	Store* store = new Store;
+	while (true)
+	{
+		int input;
+
+		cout << "메뉴를 선택하세요! 1. 상점방문 2. 플레이어 관리 3. 게임종료" << endl;
+
+		cin >> input;
+
+		switch (input)
+		{
+		case 1:
+			gm.ManageStore();
+			break;
+		case 2:
+			gm.ManagePlayer();
+			break;
+		case 3:
+			return 0;
+		default:
+			break;
+		}
+	}
+
 
 	
 
 
-	store->ShowItems();
-
-	player->BuyItem(store,"천갑옷");
-	player->ShowInventory();
-	store->ShowItems();
-
-	cout << "장착할 아이템의 이름을 입력하세요!" << endl;
-
-	string name;
-
-	cin >> name;
-	player->EquipItem(name);
-	player->ShowEquipList();
-
-	player->ShowInventory();
-
-	cout << "해제할 아이템의 타입을 입력하세요! 1. WEAPON, 2. ARMOR, 3. HELMET " << endl;
-
-	int type;
-
-	cin >> type;
-
-	player->UnEquipItem(ItemType(type-1));
-
-	player->ShowEquipList();
-
-	player->ShowInventory();
-
-	delete player;
-
-	delete store;
-
-
 	//rfor로 intellisense 호출
+
 	/*auto a = 0;
 	auto b = 0.0;
 	auto c = 0.0f;
